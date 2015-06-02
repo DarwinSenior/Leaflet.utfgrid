@@ -161,8 +161,8 @@ L.UtfGrid = (L.Layer || L.Class).extend({
 		    gridY = Math.floor((point.y - (y * tileSize)) / resolution),
 			max = map.options.crs.scale(map.getZoom()) / tileSize;
 
-		x = (x + max) % max;
-		y = (y + max) % max;
+		// x = (x + max) % max;
+		// y = (y + max) % max;
 
 		var data = this._cache[map.getZoom() + '_' + x + '_' + y];
 		if (!data || !data.grid) {
@@ -205,7 +205,8 @@ L.UtfGrid = (L.Layer || L.Class).extend({
 		for (var x = nwTilePoint.x; x <= seTilePoint.x; x++) {
 			for (var y = nwTilePoint.y; y <= seTilePoint.y; y++) {
 
-				var xw = (x + max) % max, yw = (y + max) % max;
+				// var xw = (x + max) % max, yw = (y + max) % max;
+				var xw = x, yw = y;
 				var key = zoom + '_' + xw + '_' + yw;
 				visible_tiles.push(key);
 
